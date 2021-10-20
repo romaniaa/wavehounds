@@ -1,10 +1,11 @@
 import * as React from 'react'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 
-const IndexPage = () => {
+const IndexPage = ({children}) => {
   return (
     <Layout pageTitle="Home Page">
-      <p>I'm making this by following the Gatsby Tutorial.</p>
+      {children}
+      <p>hi</p>
     </Layout>
   )
 }
