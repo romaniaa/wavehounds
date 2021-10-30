@@ -1,16 +1,32 @@
 import * as React from 'react'
-import Nav from '../components/Nav'
-import '../styles/styles.scss';
+import { Link } from 'gatsby'
+import Nav from './Navigation'
+import Footer from '../components/Footer'
+import Sidebar from '../components/Sidebar'
+import '../styles/styles.scss'
+import { SidebarImage, FooterLogo } from "../staticContent"
 
 const Layout = ({ pageTitle, children }) => {
   return (
     <div>
-      <Nav/>
-      <title>{pageTitle}</title>
-      <main>
-        <h1>{pageTitle}</h1>
-        {children}
-      </main>
+      <Sidebar
+        image={SidebarImage}
+      />
+      <h1 className="pagetitle">
+          <Link to="/">
+            WaveHounds
+          </Link>
+      </h1>
+      <div className="content">
+        <Nav/>
+        <title>{pageTitle}</title>
+        <main>
+          {children}
+        </main>
+       </div>
+       <Footer 
+        logo={FooterLogo}
+       />
     </div>
   )
 }
