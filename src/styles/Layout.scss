@@ -8,8 +8,7 @@
 	}
 
     main{
-		margin-left: 7vw;
-
+		margin: 3em 7vw;
     }
 }
 
@@ -59,4 +58,35 @@
 			transition: $ease;
 		}
 	}
+}
+
+.page{
+    opacity: 0;
+	height: 0;
+
+    &.enter{
+        opacity: 0;
+
+        &-active{
+            opacity: 1;
+            transition: opacity 2s;
+
+        }
+        &-done{
+            opacity: 1;
+        }
+    }
+
+    &.exit{
+        opacity: 0;
+
+        &-active{
+            opacity: 0;
+            transition: opacity s;
+        }
+
+        &-done{
+            opacity: 0;
+        }
+    }
 }
