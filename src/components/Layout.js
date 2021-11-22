@@ -1,26 +1,43 @@
-import * as React from 'react'
+import  React, {useState, useEffect} from 'react'
 import { Link } from 'gatsby'
-import '../styles/styles.scss';
+import Nav from './Navigation'
+import Footer from '../components/Footer'
+import Sidebar from '../components/Sidebar'
+import '../styles/styles.scss'
+import { SidebarImage, FooterLogo } from "../staticContent"
+import { CSSTransition } from "react-transition-group";
 
-const Layout = ({ pageTitle, children }) => {
+function Layout({ pageTitle, children }) {
+  
+  useEffect(() => {
+    setIsVisible(true)
+  },[]);
+  
+  const [isVisible, setIsVisible] = useState(false)
+  
   return (
-    <div>
-      <title>{pageTitle}</title>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
-      </nav>
-      <main>
-        <h1>{pageTitle}</h1>
-        {children}
-      </main>
-    </div>
+    <CSSTransition in={isVisible} timeout={500} className="page">
+      <div>
+        <Sidebar
+          image={SidebarImage}
+        />
+        <h1 className="pagetitle">
+            <Link to="/">
+              WaveHounds
+            </Link>
+        </h1>
+        <div className="content">
+          <Nav/>
+          <title>{pageTitle}</title>
+          <main>
+            {children}
+          </main>
+        </div>
+        <Footer 
+          logo={FooterLogo}
+        />
+      </div>
+    </CSSTransition>
   )
 }
 

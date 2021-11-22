@@ -1,0 +1,13 @@
+.sidebar {
+	width: 45vw;
+	max-width: 625px;
+	position: fixed;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	
+	.gatsby-image-wrapper-constrained {
+		height: 100%;
+	}
+}
