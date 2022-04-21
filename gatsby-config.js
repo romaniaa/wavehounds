@@ -9,6 +9,7 @@ module.exports = {
   `gatsby-plugin-sharp`,
   `gatsby-transformer-sharp`,
   `gatsby-plugin-mdx`,
+  `gatsby-plugin-no-index`,
   {
     resolve: "gatsby-source-filesystem",
     options: {

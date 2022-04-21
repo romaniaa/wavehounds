@@ -3,23 +3,27 @@ import { Link } from 'gatsby'
 import Nav from './Navigation'
 import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
+import ToggleSwitch from '../components/ToggleSwitch'
 import '../styles/styles.scss'
-import { SidebarImage, FooterLogo } from "../staticContent"
+import { FooterLogo } from "../staticContent"
 import { CSSTransition } from "react-transition-group";
 
-function Layout({ pageTitle, children }) {
+function Layout({ pageTitle, sideImage, children }) {
   
   useEffect(() => {
     setIsVisible(true)
   },[]);
   
   const [isVisible, setIsVisible] = useState(false)
+  const [isToggled, setIsToggled] = useState(false);
+  const onToggle = () => setIsToggled(!isToggled);
   
   return (
     <CSSTransition in={isVisible} timeout={500} className="page">
       <div>
+        <ToggleSwitch/>
         <Sidebar
-          image={SidebarImage}
+          image={sideImage}
         />
         <h1 className="pagetitle">
             <Link to="/">
