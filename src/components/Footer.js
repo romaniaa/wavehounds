@@ -8,7 +8,6 @@ class Footer extends React.Component {
 			<footer className='footer'>
 				 { logo.image ? logo.image : ''}
 				<ul>
-					<li><Link to="">Behance</Link></li>
 					<li><Link to="">Instagram</Link></li>
 					<li><Link to="">Email</Link></li>
 				</ul>

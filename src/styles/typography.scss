@@ -4,6 +4,11 @@ body{
 	font-family: 'Inter', sans-serif;
 	letter-spacing: -0.06em;
 	-webkit-font-smoothing: antialiased;
+
+	&.dark-mode {
+		background-color: $main-4;
+		color: #ffffff;
+	}
 }
 
 h1{

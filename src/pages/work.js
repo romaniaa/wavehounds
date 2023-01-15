@@ -1,31 +1,19 @@
-import * as React from 'react'
+import React from 'react'
 import Layout from '../components/Layout'
-import { graphql } from 'gatsby'
 import { workImage } from "../staticContent"
+import InstaFeeds from '../components/InstaFeeds'
 
-const WorkPage = ({ data }) => {
+
+const WorkPage = () => {
   return (
     <Layout pageTitle="My Work Posts" sideImage={workImage ? workImage : ''}>
-      <p>My cool posts will go in here</p>
-      {
-        data.allFile.nodes.map(node => (
-          <div key={node.name}>
-            {node.name}
-          </div>
-        ))
-      }
+      <p>A lot of important work happens at Wavehounds, below is some of the other stuff. </p>
+      <div>
+        <InstaFeeds token={process.env.REACT_APP_INS_TOKEN} limit={12}/>
+      </div>
+      <p>If you're interested in working with Wavehounds - reach out.</p>
     </Layout>
   )
 }
-
-export const query = graphql`
-query MyQuery {
-    allFile {
-      nodes {
-        name
-      }
-    }
-  }
-`
 
 export default WorkPage

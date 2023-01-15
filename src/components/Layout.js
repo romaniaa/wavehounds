@@ -21,7 +21,6 @@ function Layout({ pageTitle, sideImage, children }) {
   return (
     <CSSTransition in={isVisible} timeout={500} className="page">
       <div>
-        <ToggleSwitch/>
         <Sidebar
           image={sideImage}
         />
@@ -30,6 +29,7 @@ function Layout({ pageTitle, sideImage, children }) {
               WaveHounds
             </Link>
         </h1>
+        {/* <ToggleSwitch/> */}
         <div className="content">
           <Nav/>
           <title>{pageTitle}</title>

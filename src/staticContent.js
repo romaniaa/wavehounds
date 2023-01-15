@@ -13,6 +13,10 @@ export const aboutImage = {
 	image: (<StaticImage className='sidebar__image-wrapper' src='./images/mountainBKG.jpg' alt='A mountain' objectFit="cover"/>),
 }
 
+export const workImage = {
+	image: (<StaticImage className='sidebar__image-wrapper' src='./images/mountainBKG.jpg' alt='A mountain' objectFit="cover"/>),
+}
+
 export const FooterLogo = {
 	image: (<StaticImage className='footer__logo-wrapper' src='./images/WaveHoundLogo.jpg' alt='A wave' objectFit="cover"/>),
 }

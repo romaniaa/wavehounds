@@ -1,24 +1,36 @@
 .content{
-margin-left:40vw;
+	margin-left:40vw;
 	z-index: 99;
 	position: relative;
 
-@media(min-width: $medium){
-	margin-left: 557px;
-}
+	@media(max-width: $small){
+		margin-left: 0px;
+		min-height: 90vh;
+	}
 
 	main{
-	margin: 3em 7vw;
+		margin: 45px 7vw;
+		padding: 45px 0;
+
+		@media(max-width: $small){
+			margin: 0px;
+			width: calc(100% - 40px);
+			padding: 20px;
+		}
+			
+		p {
+			margin-bottom: 15px;
+		}
 	}
 }
 
 .pagetitle{
-top: 50px;
-position: fixed;
-line-height: 1;
-transform: rotate(90deg);
-font-size: 18px;
-margin-left: 0px;
+	top: 50px;
+	position: fixed;
+	line-height: 1;
+	transform: rotate(90deg);
+	font-size: 18px;
+	margin-left: 0px;
 	margin-top: 35px;
 	overflow: hidden;
 	z-index: 2;
@@ -26,38 +38,45 @@ margin-left: 0px;
 	color: $white;
 	transition: $ease;
 
-&:before{
-	content: '';
-	position: absolute;
-	bottom: 1px;
-	height: 2px;
-	width: calc(100% + 4px);
-	background-color: $white;
-	z-index: -1;
-	left: -4px;
-}
-
-&:hover{
-
-	color: #000;
-	transition: $ease;
+	@media(max-width: $small){
+		transform: none;
+		top: 30px;
+		left: 20px;
+		margin-top: 0px;
+	}
 
 	&:before{
-		height: 100%;
-		transition: $ease;
+		content: '';
+		position: absolute;
+		bottom: 1px;
+		height: 2px;
+		width: calc(100% + 4px);
+		background-color: $white;
+		z-index: -1;
+		left: -4px;
 	}
-}
-
-a{	
-	color: $white;
-	text-decoration: none;
-	transition: $ease;
 
 	&:hover{
+
 		color: #000;
 		transition: $ease;
+
+		&:before{
+			height: 100%;
+			transition: $ease;
+		}
 	}
-}
+
+	a{	
+		color: $white;
+		text-decoration: none;
+		transition: $ease;
+
+		&:hover{
+			color: #000;
+			transition: $ease;
+		}
+	}
 }
 
 .page{

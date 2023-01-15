@@ -1,8 +1,12 @@
 .toggle-switch {
-  position: relative;
+  position: fixed;
   display: inline-block;
-  width: 50px;
-  height: 25px;
+  width: 35px;
+  height: 19px;
+  z-index: 99;
+  top: 166px;
+  left: 34px;
+  transform: rotate(90deg);
 }
 .toggle-switch input[type="checkbox"] {
   display: none;
@@ -10,7 +14,7 @@
 .toggle-switch .switch {
   position: absolute;
   cursor: pointer;
-  background-color: #ccc;
+  background-color: $main-1;
   border-radius: 25px;
   top: 0;
   right: 0;
@@ -22,17 +26,18 @@
   position: absolute;
   content: "";
   left: 2px;
-  top: 2px;
-  width: 21px;
-  height: 21px;
-  background-color: #aaa;
+  top: 1px;
+  width: 15px;
+  height: 15px;
+  background-color: $main-2;
+  border: 2px solid $main-4;
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
 .toggle-switch input[type="checkbox"]:checked + .switch::before {
-  transform: translateX(25px);
-  background-color: #6699cc;
+  transform: translateX(15px);
+  background-color: $main-2;
 }
 .toggle-switch input[type="checkbox"]:checked + .switch {
-  background-color: #336699;
+  background-color: $main-2;
 }
