@@ -13,12 +13,5 @@ module.exports = {
   `gatsby-transformer-sharp`,
   `gatsby-plugin-mdx`,
   `gatsby-plugin-no-index`,
-  {
-    resolve: "gatsby-source-filesystem",
-    options: {
-      name: `work`,
-      path: `${__dirname}/work`,
-    }
-  },
   ],
 };
