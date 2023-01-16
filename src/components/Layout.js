@@ -3,34 +3,28 @@ import { Link } from 'gatsby'
 import Nav from './Navigation'
 import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
-// import ToggleSwitch from '../components/ToggleSwitch'
 import '../styles/styles.scss'
 import { FooterLogo } from "../staticContent"
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition } from "react-transition-group"
 
 function Layout({ pageTitle, sideImage, children }) {
 
   // Dark Mode
-  const [theme, setTheme] = useState(
-    localStorage.getItem('theme') || 'light'
-  )
-  const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark')
-    } else {
-      setTheme('light')
-    }
-  }
-
+  const storedTheme =	typeof window !== 'undefined' && window.localStorage.getItem('theme')
+	const [theme, setTheme] = useState(storedTheme || 'light')
+  const toggleTheme = () => setTheme((prevTheme) => {
+    return prevTheme === 'light' ? 'dark' : 'light'
+  })
+  
   useEffect(() => {
-    localStorage.setItem('theme', theme);
-    document.body.className = theme;
+    localStorage.setItem('theme', theme)
+    document.body.className = theme
   }, [theme])
 
   // CSS transitions
   useEffect(() => {
     setIsVisible(true)
-  },[]);
+  },[])
 
   const [isVisible, setIsVisible] = useState(false)
   
@@ -47,7 +41,7 @@ function Layout({ pageTitle, sideImage, children }) {
             </Link>
         </h1>
         <label className="toggle-switch toggle-inner">
-          <input type="checkbox"  onChange={toggleTheme} />
+          <input type="checkbox" onChange={toggleTheme} />
           <span className="switch" />
         </label>
         <div className="content">
