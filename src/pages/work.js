@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import Layout from '../components/Layout'
 import { workImage } from "../staticContent"
 import InstaFeeds from '../components/InstaFeeds'
