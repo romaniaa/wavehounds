@@ -20,6 +20,10 @@ nav{
 			margin-right: 25px;
 			position: relative;
 
+			@media(max-width: $small){
+				font-size: 25px;
+			}
+
 			&:after {
 				content:'/';
 				position: absolute;
@@ -27,6 +31,11 @@ nav{
     		top: 13px;
 				color: $main-2;
 				font-size: 20px;
+
+				@media(max-width: $small){
+					font-size: 15px;
+					top: 8px;
+				}
 			}
 
 			a{
@@ -48,7 +57,7 @@ nav{
 	}
 }
 
-.dark-mode {
+.dark{
 	nav{
 		ul {
 			li {

@@ -28,7 +28,6 @@ const Feed = (props) => {
                     src={media_url} 
                     alt={caption} 
                 />
-                {console.log(id.children)}
               </a>
             );
             break;

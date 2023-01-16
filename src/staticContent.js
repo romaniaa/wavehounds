@@ -10,11 +10,11 @@ export const indexImage = {
 }
 
 export const aboutImage = {
-	image: (<StaticImage className='sidebar__image-wrapper' src='./images/mountainBKG.jpg' alt='A mountain' objectFit="cover"/>),
+	image: (<StaticImage className='sidebar__image-wrapper' src='./images/mt-seymour.jpg' alt='A mountain' objectFit="cover"/>),
 }
 
 export const workImage = {
-	image: (<StaticImage className='sidebar__image-wrapper' src='./images/mountainBKG.jpg' alt='A mountain' objectFit="cover"/>),
+	image: (<StaticImage className='sidebar__image-wrapper' src='./images/north-vancouver.jpg' alt='A mountain' objectFit="cover"/>),
 }
 
 export const FooterLogo = {

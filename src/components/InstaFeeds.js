@@ -10,7 +10,6 @@ const InstaFeeds = ({token, ...props}) => {
     useEffect(() => {
         // this is to avoid memory leaks
         const abortController = new AbortController();
-
         async function fetchInstagramPost () {
           try{
             axios
