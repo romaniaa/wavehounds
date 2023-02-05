@@ -35,18 +35,9 @@ const InstaFeeds = () => {
     <div className={'ig-container'}>
         {arrayOfInstaImages.map((item, i) => (
             <div key={i} className={'image'}>
-                {/* {console.log(item.node.localFile.childImageSharp.gatsbyImageData.images)}
-                <StaticImage 
-                    style={{ width: "200px", height: "200px" }}
-                    src={item.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src} 
-                    // srcSet={item.node.localFile.childImageSharp.gatsbyImageData.images.sources[0].srcSet} 
-                    objectFit="cover" 
-                    alt={item.node.caption}
-                /> */}
                 <img src={item.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={item.node.caption}/>
             </div>
         ))}
-        {console.log(arrayOfInstaImages)}
     </div>
   )
 }
