@@ -7,15 +7,15 @@ module.exports = {
     title: "WaveHounds",
   },
   plugins: [
+  {
+    resolve: `gatsby-source-instagram-all`,
+    options: { access_token: process.env.GATSBY_INS_TOKEN }
+  },
   `gatsby-plugin-sass`,
   `gatsby-plugin-image`,
   `gatsby-plugin-sharp`,
   `gatsby-transformer-sharp`,
   `gatsby-plugin-mdx`,
   `gatsby-plugin-no-index`,
-    {
-      resolve: `gatsby-source-instagram-all`,
-      options: { access_token: process.env.GATSBY_INS_TOKEN }
-    },
   ],
 };
