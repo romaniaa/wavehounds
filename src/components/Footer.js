@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
 
 class Footer extends React.Component {
 	render() {
@@ -8,8 +7,8 @@ class Footer extends React.Component {
 			<footer className='footer'>
 				 { logo.image ? logo.image : ''}
 				<ul>
-					<li><Link to="">Instagram</Link></li>
-					<li><Link to="">Email</Link></li>
+					<li><a href={'https://www.instagram.com/wavehounds/'} target={'_blank'} rel="noreferrer">Instagram</a></li>
+					<li><a href={'mailto:roman@romanhermens.com'} target={'_blank'} rel="noreferrer">Email</a></li>
 				</ul>
 			</footer>
 			

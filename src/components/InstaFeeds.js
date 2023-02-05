@@ -11,6 +11,7 @@ const InstaFeeds = () => {
                     node {
                     caption
                     media_url
+                    permalink
                     localFile {
                         childImageSharp {
                         gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
@@ -35,7 +36,9 @@ const InstaFeeds = () => {
     <div className={'ig-container'}>
         {arrayOfInstaImages.map((item, i) => (
             <div key={i} className={'image'}>
-                <img src={item.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={item.node.caption}/>
+                <a href={item.node.permalink} target={'_blank'} rel={'noreferrer'}>
+                    <img src={item.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={item.node.caption}/>
+                </a>
             </div>
         ))}
     </div>
