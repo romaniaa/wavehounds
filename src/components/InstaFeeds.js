@@ -1,42 +1,54 @@
-import React, { useState, useEffect, useRef } from 'react'
-import axios from 'axios'
-import Feed from './Feed'
+import React from 'react'
+import { useStaticQuery, graphql } from "gatsby"
+import _get from "lodash/get";
 
-const InstaFeeds = ({token, ...props}) => {
-    const [feeds, setFeedsData] = useState([])
-    const tokenProp = useRef(token);
-    tokenProp.current = token;
+const InstaFeeds = () => {
 
-    useEffect(() => {
-        // this is to avoid memory leaks
-        const abortController = new AbortController();
-        async function fetchInstagramPost () {
-          try{
-            axios
-                .get(`https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,permalink&limit=${props.limit}&access_token=${token}`)
-                .then((resp) => {
-                    setFeedsData(resp.data.data)
-                })
-          } catch (err) {
-              console.log('error', err)
-          }
+    const data = useStaticQuery(graphql`
+        query InstagramQuery {
+            allInstagramContent {
+                edges {
+                    node {
+                    caption
+                    media_url
+                    localFile {
+                        childImageSharp {
+                        gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+                        }
+                    }
+                    album {
+                        localFile {
+                        childImageSharp {
+                            gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+                        }
+                        }
+                    }
+                    }
+                }
+            }
         }
-        
-        // manually call the fecth function 
-        fetchInstagramPost();
+    `)
   
-        return () => {
-            abortController.abort(); 
-        };
-    }, [props.limit, props.token])
+  let arrayOfInstaImages = _get(data, 'allInstagramContent.edges')
 
-    return (
-        <div className="ig-container">
-            {feeds.map((feed) => (
-                <Feed key={feed.id} feed={feed} />
-            ))}
-        </div>
-    );
+  return (
+    <div className={'ig-container'}>
+        {arrayOfInstaImages.map((item, i) => (
+            <div key={i} className={'image'}>
+                {/* {console.log(item.node.localFile.childImageSharp.gatsbyImageData.images)}
+                <StaticImage 
+                    style={{ width: "200px", height: "200px" }}
+                    src={item.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src} 
+                    // srcSet={item.node.localFile.childImageSharp.gatsbyImageData.images.sources[0].srcSet} 
+                    objectFit="cover" 
+                    alt={item.node.caption}
+                /> */}
+                <img src={item.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={item.node.caption}/>
+            </div>
+        ))}
+        {console.log(arrayOfInstaImages)}
+    </div>
+  )
 }
 
 export default InstaFeeds;
