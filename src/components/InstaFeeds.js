@@ -14,7 +14,7 @@ const InstaFeeds = () => {
                     permalink
                     localFile {
                         childImageSharp {
-                        gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+                        gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED, width: 500, height: 500)
                         }
                     }
                     album {
