@@ -18,9 +18,9 @@ function Layout({ pageTitle, sideImage, children }) {
     setTheme((prevTheme) => {
       return prevTheme === 'light' ? 'dark' : 'light'
     })
-    setChecked((checked) => {
-      return checked === true ? false : true
-    })
+    // setChecked((checked) => {
+    //   return checked === true ? false : true
+    // })
   }
   
   //Darkmode
