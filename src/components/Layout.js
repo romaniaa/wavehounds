@@ -9,13 +9,21 @@ import { CSSTransition } from "react-transition-group"
 
 function Layout({ pageTitle, sideImage, children }) {
 
-  // Dark Mode
+  // Darkmode and toggle
   const storedTheme =	typeof window !== 'undefined' && window.localStorage.getItem('theme')
 	const [theme, setTheme] = useState(storedTheme || 'light')
-  const toggleTheme = () => setTheme((prevTheme) => {
-    return prevTheme === 'light' ? 'dark' : 'light'
-  })
+  const [checked, setChecked] = useState(storedTheme === 'light' ? true : false)
   
+  const toggleTheme = () => {
+    setTheme((prevTheme) => {
+      return prevTheme === 'light' ? 'dark' : 'light'
+    })
+    setChecked((checked) => {
+      return checked === true ? false : true
+    })
+  }
+  
+  //Darkmode
   useEffect(() => {
     localStorage.setItem('theme', theme)
     document.body.className = theme
@@ -36,12 +44,12 @@ function Layout({ pageTitle, sideImage, children }) {
           image={sideImage}
         />
         <h1 className="pagetitle">
-            <Link to="/">
-              WaveHounds
-            </Link>
+          <Link to="/">
+            WaveHounds
+          </Link>
         </h1>
         <label className="toggle-switch toggle-inner">
-          <input type="checkbox" onChange={toggleTheme} />
+          <input defaultChecked={checked} type="checkbox" onChange={toggleTheme}/>
           <span className="switch" />
         </label>
         <div className="content">
