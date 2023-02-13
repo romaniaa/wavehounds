@@ -4,6 +4,8 @@
 	left: 45px;
 	display: flex;
 	align-items: center;
+	width: 25vw;
+	overflow-wrap: anywhere;
 
 	@media(max-width: $small) {
 		position: relative;
@@ -11,6 +13,7 @@
     bottom: 0px;
     padding: 20px;
     background-color: #efefef;
+		width: 100vw;
 	}
 	
 	ul{
@@ -21,6 +24,7 @@
 		li{
 			margin-right: 12.5px;
 			position: relative;
+			letter-spacing: 2px;;
 
 			&:after{
 				content:'/';
